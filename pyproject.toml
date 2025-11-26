@@ -6,4 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "ipykernel>=7.1.0",
+    "ollama>=0.6.1",
+    "pydantic>=2.12.4",
+    "requests>=2.32.5",
 ]
