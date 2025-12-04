@@ -1,0 +1,34 @@
+
+
+[2m╭──────────────────────────────────────────────────────────────────────────────╮[0m
+[2m│[0m                                                                              [2m│[0m
+[2m│[0m                        [36m [0m[36m▄[0m[36m▀[0m[36m▀[0m[36m [0m[36m▄[0m[36m▀[0m[36m█[0m[36m [0m[36m█[0m[36m▀[0m[36m▀[0m[36m [0m[36m▀[0m[36m█[0m[36m▀[0m[36m [0m[36m█[0m[36m▀[0m[36m▄[0m[36m▀[0m[36m█[0m[94m [0m[94m█[0m[94m▀[0m[94m▀[0m[94m [0m[94m█[0m[94m▀[0m[94m█[0m                        [2m│[0m
+[2m│[0m                        [36m [0m[36m█[0m[36m▀[0m[36m [0m[36m [0m[36m█[0m[36m▀[0m[36m█[0m[36m [0m[36m▄[0m[36m▄[0m[36m█[0m[36m [0m[36m [0m[36m█[0m[36m [0m[36m [0m[36m█[0m[36m [0m[36m▀[0m[36m [0m[36m█[0m[94m [0m[94m█[0m[94m▄[0m[94m▄[0m[94m [0m[94m█[0m[94m▀[0m[94m▀[0m                        [2m│[0m
+[2m│[0m                                                                              [2m│[0m
+[2m│[0m                                [1;34mFastMCP 2.13.1[0m                                [2m│[0m
+[2m│[0m                                                                              [2m│[0m
+[2m│[0m                                                                              [2m│[0m
+[2m│[0m                  [1m🖥 [0m[1m [0m[36mServer name:[0m[36m [0m[1;2;34mDemo 🚀 (HTTP)           [0m                   [2m│[0m
+[2m│[0m                  [1m   [0m[36m             [0m[1;2;34m                         [0m                   [2m│[0m
+[2m│[0m                  [1m📦[0m[1m [0m[36mTransport:  [0m[36m [0m[2mHTTP                     [0m                   [2m│[0m
+[2m│[0m                  [1m🔗[0m[1m [0m[36mServer URL: [0m[36m [0m[2mhttp://127.0.0.1:8000/mcp[0m                   [2m│[0m
+[2m│[0m                  [1m  [0m[1m [0m[36m            [0m[36m [0m[2m                         [0m                   [2m│[0m
+[2m│[0m                  [1m📚[0m[1m [0m[36mDocs:       [0m[36m [0m[2mhttps://gofastmcp.com    [0m                   [2m│[0m
+[2m│[0m                  [1m🚀[0m[1m [0m[36mHosting:    [0m[36m [0m[2mhttps://fastmcp.cloud    [0m                   [2m│[0m
+[2m│[0m                                                                              [2m│[0m
+[2m╰──────────────────────────────────────────────────────────────────────────────╯[0m
+
+
+[2;36m[12/04/25 09:29:34][0m[2;36m [0m[34mINFO    [0m Starting MCP server [32m'Demo 🚀 [0m[32m([0m[32mHTTP[0m[32m)[0m[32m'[0m ]8;id=16782;file:///Users/alexgreco/projects/ai_basic/.venv/lib/python3.12/site-packages/fastmcp/server/server.py\[2mserver.py[0m]8;;\[2m:[0m]8;id=568733;file:///Users/alexgreco/projects/ai_basic/.venv/lib/python3.12/site-packages/fastmcp/server/server.py#2055\[2m2055[0m]8;;\
+[2;36m                    [0m         with transport [32m'http'[0m on             [2m              [0m
+[2;36m                    [0m         [4;94mhttp://127.0.0.1:8000/mcp[0m            [2m              [0m
+INFO:     Started server process [17813]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:55834 - "POST / HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+ERROR:    Cancel 0 running task(s), timeout graceful shutdown exceeded
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [17813]
