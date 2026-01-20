@@ -1,0 +1,132 @@
+flowchart TD
+
+  %% --- Customers & channels
+  subgraph A[Customers and Channels]
+    CUST[Customer]
+    Mobile[Mobile app / Web / ATM / Branch]
+  end
+  CUST --> Mobile
+
+  %% --- Front door & core banking
+  subgraph B[Bank Frontend and Core]
+    Auth[Auth and API Gateway]
+    Core[Core Banking and Transaction DB]
+    PaymentNet[Payment Network and Merchant]
+  end
+  Mobile --> Auth --> Core
+  Core --> PaymentNet
+
+  %% --- Observability & real-time systems
+  subgraph C[Observability and Streaming]
+    EventStream[Event Stream and Audit Logs]
+    Monitoring[Monitoring and Telemetry]
+    Metrics[Metrics Engine]
+  end
+  Core --> EventStream
+  EventStream --> Monitoring
+  Monitoring --> Metrics
+
+  %% --- Incident Management
+  subgraph D[Incident Management Platform]
+    IM_Ingest[Ticket and Alert Ingest]
+    IM_Preproc[Text Preprocessing tokenize stopwords ngrams]
+    IM_Vector[Vectorization TFIDF or Embeddings]
+    IM_Search[Similarity Search cosine or ANN]
+    IM_Rank[Ranking and Confidence Scores]
+    IM_GUI[Operator Interface and Workflow Viewer]
+    IM_KB[Knowledge Base of Historical Incidents]
+    IM_Remedy[Automated Remediation Engine]
+  end
+
+  Monitoring --> IM_Ingest
+  IM_Ingest --> IM_Preproc --> IM_Vector --> IM_Search --> IM_Rank --> IM_GUI
+  IM_GUI --> IM_KB
+  IM_GUI --> IM_Remedy
+  IM_Remedy --> Core
+
+  %% --- Virtual Agent / NLP
+  subgraph E[Virtual Agent and NLP Stack]
+    VA_Interface[Virtual Agent Interface]
+    VA_Parser[Parser and Tuple Extractor]
+    VA_Summarizer[Summarizer Extractive or Transformer]
+    VA_Sentiment[Sentiment Analyzer]
+    VA_Report[Condensed Report and Visuals]
+  end
+
+  IM_Ingest --> VA_Interface
+  VA_Interface --> VA_Parser --> VA_Summarizer --> VA_Report
+  VA_Parser --> VA_Sentiment --> VA_Report
+  VA_Report --> IM_GUI
+
+  %% --- Secure Data Lake and Clean Room
+  subgraph F[Encrypted Data Lake and Clean Room]
+    DataLake[Encrypted Data Lake]
+    TrustMgr[Trust Manager and Remote Attestation]
+    TEE[Trusted Execution Environment Clean Room]
+    TEE_DB[Secure Database Keys inside TEE]
+    Analytics[Analytics and ML Training inside TEE]
+    Anonymize[Aggregation and Differential Privacy]
+    PartnerOutputs[Partner Reports and Aggregates]
+  end
+
+  Core --> DataLake
+  DataLake --> TrustMgr --> TEE
+  TEE --> TEE_DB --> Analytics --> Anonymize --> PartnerOutputs
+  PartnerOutputs --> External[External Partners or Regulators or Banks]
+  External --> TrustMgr
+
+  %% --- Models and scoring
+  Analytics --> ModelStore[Model Store and Scoring APIs]
+  ModelStore --> RealtimeScoring[Realtime Risk or Fraud Scoring]
+  RealtimeScoring --> Core
+  RealtimeScoring --> Monitoring
+
+  %% --- Feedback loops
+  IM_KB --> DataLake
+  VA_Report --> Analytics
+  PartnerOutputs --> IM_GUI
+
+  %% --- Styles (class definitions)
+  classDef customers fill:#f9f,stroke:#333,stroke-width:1px;
+  classDef core fill:#fffbdd,stroke:#333,stroke-width:1px;
+  classDef ops fill:#e8f5ff,stroke:#333,stroke-width:1px;
+  classDef secure fill:#e9ffe9,stroke:#333,stroke-width:1px;
+
+  %% Assign classes (one node per line to avoid parser issues)
+  class CUST customers;
+  class Mobile customers;
+
+  class Auth core;
+  class Core core;
+  class PaymentNet core;
+
+  class EventStream ops;
+  class Monitoring ops;
+  class Metrics ops;
+
+  class IM_Ingest ops;
+  class IM_Preproc ops;
+  class IM_Vector ops;
+  class IM_Search ops;
+  class IM_Rank ops;
+  class IM_GUI ops;
+  class IM_KB ops;
+  class IM_Remedy ops;
+
+  class VA_Interface ops;
+  class VA_Parser ops;
+  class VA_Summarizer ops;
+  class VA_Sentiment ops;
+  class VA_Report ops;
+
+  class DataLake secure;
+  class TrustMgr secure;
+  class TEE secure;
+  class TEE_DB secure;
+  class Analytics secure;
+  class Anonymize secure;
+  class PartnerOutputs secure;
+  class External secure;
+
+  class ModelStore ops;
+  class RealtimeScoring ops;
